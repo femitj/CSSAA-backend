@@ -14,7 +14,7 @@
     "postinstall": "npm run build",
     "db_migrate": "npx sequelize-cli db:migrate",
     "migrate": "sequelize db:migrate",
-    "migrate:undo": "sequelize db:migrate:undo:all",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo:all",
     "seed": "sequelize db:seed:all",
     "db:reset": "npm run migrate:undo && npm run migrate && npm run seed",
     "deploy": "git push heroku master"
@@ -23,6 +23,7 @@
     "@babel/polyfill": "^7.8.7",
     "@sendgrid/mail": "^7.4.5",
     "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -54,7 +55,7 @@
     "nodemon": "^2.0.7",
     "regenerator-runtime": "^0.13.7",
     "sequelize-cli": "^6.2.0",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.1.0",
     "typescript": "^4.2.4"
   }
 }

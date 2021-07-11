@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import logger from 'morgan';
 import dotenv from 'dotenv';
-// import router from './routes';
+import router from './routes';
 
 dotenv.config();
 
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
   return res.send('Welcome to CSSAA API');
 });
 
-// app.use('/api', router);
+app.use('/api/v1', router);
 
 const port = process.env.PORT || 8000;
 

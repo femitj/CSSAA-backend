@@ -4,7 +4,7 @@ module.exports = {
     queryInterface.sequelize
       .query('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";')
       .then(() =>
-        queryInterface.createTable('Drivers', {
+        queryInterface.createTable('Users', {
           id: {
             allowNull: false,
             primaryKey: true,
@@ -12,6 +12,7 @@ module.exports = {
             defaultValue: Sequelize.literal('uuid_generate_v4()'),
           },
           name: {
+            allowNull: false,
             type: Sequelize.STRING,
           },
           email: {
@@ -19,17 +20,39 @@ module.exports = {
             unique: true,
             allowNull: false,
           },
-          phone_number: {
+          password: {
             type: Sequelize.STRING,
-            unique: true,
+            allowNull: false,
+          },
+          phone_number: {
+            allowNull: true,
+            type: Sequelize.STRING,
           },
           license_number: {
             type: Sequelize.STRING,
-            unique: true,
+            allowNull: true,
           },
           car_number: {
             type: Sequelize.STRING,
-            unique: true,
+            allowNull: true,
+          },
+          role: {
+            allowNull: true,
+            type: Sequelize.STRING,
+            allowNull: false,
+          },
+          latitude: {
+            type: Sequelize.DECIMAL,
+            allowNull: true,
+          },
+          longitude: {
+            type: Sequelize.DECIMAL,
+            allowNull: true,
+          },
+          status: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            defaultValue: 'inactive',
           },
           created_at: {
             allowNull: false,
@@ -43,5 +66,5 @@ module.exports = {
           },
         })
       ),
-  down: (queryInterface) => queryInterface.dropTable('Drivers'),
+  down: (queryInterface) => queryInterface.dropTable('Users'),
 };
