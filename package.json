@@ -49,6 +49,7 @@
     "@types/jsonwebtoken": "^8.5.2",
     "@types/morgan": "^1.9.2",
     "@types/node": "^15.0.1",
+    "@types/validator": "^13.6.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^26.6.3",
     "babel-register": "^6.26.0",
