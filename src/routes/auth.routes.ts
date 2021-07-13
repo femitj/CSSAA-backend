@@ -14,6 +14,8 @@ authRoute.post(
   Auth.createDriver
 );
 
+authRoute.post('/register/user', Auth.createPassenger);
+
 authRoute.post('/login', Auth.login);
 
 export default authRoute;

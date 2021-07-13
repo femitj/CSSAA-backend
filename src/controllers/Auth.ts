@@ -68,27 +68,18 @@ class Auth {
 
   static async createPassenger(req: any, res: any) {
     try {
-      const {
-        name,
-        email,
-        password,
-        phone_number,
-        license_number,
-        car_number,
-      } = req.body;
+      const { name, email, password, phone_number } = req.body;
       const driver = await User.create({
         name,
         email,
         password: hashPassword(password),
         phone_number,
-        license_number,
-        car_number,
         status: 'active',
         role: 'passenger',
       });
 
       if (!driver) {
-        const response = new Response(400, 'Something went wrong', {});
+        const response = new ErrorResponse(400, 'Something went wrong');
         return res.status(response.code).json(response);
       }
 
@@ -96,8 +87,6 @@ class Auth {
         name,
         email,
         phone_number,
-        license_number,
-        car_number,
       });
       return res.status(response.code).json(response);
     } catch (error) {
