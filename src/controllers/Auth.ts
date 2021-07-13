@@ -111,7 +111,6 @@ class Auth {
         return res.status(response.code).json(response);
       }
       const hash = user.password;
-      console.log(user, password);
       const result = hashHelper.comparePassword(hash, password);
       if (!result) {
         const response = new ErrorResponse(
